@@ -5,3 +5,4 @@ Special line
 Feature #1
 Beta changed a lot
 Another change
+Long story short change
