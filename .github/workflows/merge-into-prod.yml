@@ -32,8 +32,8 @@ jobs:
       - name: Configure Git
         # Check if "Read and write permissions" are enabled in Settings -> Actions -> General -> Workflow permissions
         run: |
-          git config --global user.name 'kisPocok'
-          git config --global user.email 'kisPocok@users.noreply.github.com'
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Build status report
         run: |
