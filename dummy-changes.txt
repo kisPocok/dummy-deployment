@@ -8,3 +8,4 @@ Another change
 Long story short change
 [AWESOME-123] Fix layout issues in responsive design
 [AWESOME-123] Update dependencies to latest versions for security fixes
+[AWESOME-123] Correct syntax errors in configuration files
