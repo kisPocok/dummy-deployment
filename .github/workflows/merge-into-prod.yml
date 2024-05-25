@@ -1,8 +1,21 @@
 name: Merge into prod
 
 on:
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    # Allows you to run this workflow manually from the Actions tab
+    inputs:
+      sourceBranch:
+        description: "Branch to merge into production"
+        required: true
+        default: "beta"
+      mainBranch:
+        description: "Production branch to merge into"
+        required: true
+        default: "main"
+      dryRun:
+        description: "Perform a dry run merge (do not push changes)"
+        required: false
+        default: "false"
 
 jobs:
   merge:
@@ -12,7 +25,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.1.6
         with:
-          ref: beta
+          ref: ${{ github.event.inputs['sourceBranch'] }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configure Git
@@ -26,10 +39,16 @@ jobs:
         # https://github.com/actions/checkout/issues/125
         run: git fetch --all --unshallow
 
-      - name: Merge beta to main
+      - name: Merge source branch to production
         run: |
-          git checkout main
-          git merge --ff-only beta
-          git push origin main --dry-run
+          git checkout ${{ github.event.inputs['mainBranch'] }}
+          git merge --ff-only ${{ github.event.inputs['sourceBranch'] }}
+          if [ "${{ github.event.inputs['dryRun'] }}" = "true" ]; then
+            echo "This is a dry run, changes will not be pushed".
+            git push origin ${{ github.event.inputs['mainBranch'] }} --dry-run
+          else
+            echo "Pushing changes to ${{ github.event.inputs['mainBranch'] }} branch"
+            git push origin ${{ github.event.inputs['mainBranch'] }}
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
