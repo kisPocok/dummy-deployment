@@ -1,0 +1,21 @@
+name: Beta build
+
+on:
+  push:
+    branches:
+      - beta
+  pull_request:
+    branches:
+      - beta
+  workflow_dispatch:
+
+jobs:
+  wait-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.6
+
+      - name: Beta build status report
+        run: echo "This is a beta build."
