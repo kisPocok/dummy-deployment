@@ -25,7 +25,7 @@ jobs:
       - name: Merge beta to main
         run: |
           git checkout main
-          git merge beta
+          git merge --ff-only beta
           git push origin main --dry-run
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
