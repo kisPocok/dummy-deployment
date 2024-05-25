@@ -50,10 +50,15 @@ jobs:
         run: |
           git checkout ${{ github.event.inputs['mainBranch'] }}
           git merge --ff-only ${{ github.event.inputs['sourceBranch'] }}
-          if [ "${{ github.event.inputs['dryRun'] }}" = "true" ]; then
-            git push origin ${{ github.event.inputs['mainBranch'] }} --dry-run
-          else
-            git push origin ${{ github.event.inputs['mainBranch'] }}
-          fi
+        # if [ "${{ github.event.inputs['dryRun'] }}" = "true" ]; then
+        #   git push origin ${{ github.event.inputs['mainBranch'] }} --dry-run
+        # else
+        #   git push origin ${{ github.event.inputs['mainBranch'] }}
+        # fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: ${{ github.event.inputs['mainBranch'] }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
