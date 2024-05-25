@@ -13,14 +13,18 @@ jobs:
         uses: actions/checkout@v4.1.6
         with:
           ref: beta
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configure Git
+        # Check if "Read and write permissions" are enabled in Settings -> Actions -> General -> Workflow permissions
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Fetch all branches
-        run: git fetch --all
+        # Fix for "refusing to merge unrelated histories" error
+        # https://github.com/actions/checkout/issues/125
+        run: git fetch --all --unshallow
 
       - name: Merge beta to main
         run: |
