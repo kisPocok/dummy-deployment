@@ -15,7 +15,6 @@ on:
       dryRun:
         description: "Perform a dry run merge (do not push changes)"
         required: false
-        default: "false"
 
 jobs:
   merge:
@@ -27,6 +26,7 @@ jobs:
         with:
           ref: ${{ github.event.inputs['sourceBranch'] }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Configure Git
         # Check if "Read and write permissions" are enabled in Settings -> Actions -> General -> Workflow permissions
@@ -34,20 +34,25 @@ jobs:
           git config --global user.name 'kisPocok'
           git config --global user.email 'kisPocok@users.noreply.github.com'
 
+      - name: Build status report
+        run: |
+          echo ${{ github.actor }} is merging ${{ github.event.inputs['sourceBranch'] }} into ${{ github.event.inputs['mainBranch'] }} branch.
+          if [ "${{ github.event.inputs['dryRun'] }}" = "true" ]; then
+            echo "This is a dry run, changes will not be pushed".
+          else
+            echo "Pushing changes to ${{ github.event.inputs['mainBranch'] }} branch"
+          fi
+
       - name: Fetch all branches
-        # Fix for "refusing to merge unrelated histories" error
-        # https://github.com/actions/checkout/issues/125
-        run: git fetch --all --unshallow
+        run: git fetch --all
 
       - name: Merge source branch to production
         run: |
           git checkout ${{ github.event.inputs['mainBranch'] }}
           git merge --ff-only ${{ github.event.inputs['sourceBranch'] }}
           if [ "${{ github.event.inputs['dryRun'] }}" = "true" ]; then
-            echo "This is a dry run, changes will not be pushed".
             git push origin ${{ github.event.inputs['mainBranch'] }} --dry-run
           else
-            echo "Pushing changes to ${{ github.event.inputs['mainBranch'] }} branch"
             git push origin ${{ github.event.inputs['mainBranch'] }}
           fi
         env:
