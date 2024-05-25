@@ -6,3 +6,4 @@ Feature #1
 Beta changed a lot
 Another change
 Long story short change
+[AWESOME-123] Fix layout issues in responsive design
