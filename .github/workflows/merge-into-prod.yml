@@ -22,10 +22,9 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs['sourceBranch'] }}
-          # token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
           persist-credentials: false
 
@@ -51,14 +50,9 @@ jobs:
         run: |
           git checkout ${{ github.event.inputs['mainBranch'] }}
           git merge --ff-only ${{ github.event.inputs['sourceBranch'] }}
-        # if [ "${{ github.event.inputs['dryRun'] }}" = "true" ]; then
-        #   git push origin ${{ github.event.inputs['mainBranch'] }} --dry-run
-        # else
-        #   git push origin ${{ github.event.inputs['mainBranch'] }}
-        # fi
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           branch: ${{ github.event.inputs['mainBranch'] }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT }}
