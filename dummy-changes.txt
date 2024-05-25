@@ -12,3 +12,4 @@ Long story short change
 [AWESOME-123] Improve performance of background job processing
 [AWESOME-123] Fix issues with session timeout handling
 [AWESOME-123] Optimize database queries to reduce load times
+[AWESOME-123] Fix typo in README and add contributing guidelines
