@@ -24,7 +24,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # ref: ${{ github.event.inputs['sourceBranch'] }}
+          ref: ${{ github.event.inputs['sourceBranch'] }}
           fetch-depth: 0
           persist-credentials: false
 
@@ -55,5 +55,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           branch: ${{ github.event.inputs['mainBranch'] }}
+          # TODO: FIXME: Using GITHUB_TOKEN does not trigger a push event
+          # https://github.com/marketplace/actions/github-push#example-workflow-file
           # github_token: ${{ secrets.GITHUB_TOKEN }}
           github_token: ${{ secrets.PAT }}
