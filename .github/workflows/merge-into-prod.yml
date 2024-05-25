@@ -55,5 +55,5 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           branch: ${{ github.event.inputs['mainBranch'] }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # github_token: ${{ secrets.PAT }}
+          # github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT }}
