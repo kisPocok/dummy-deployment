@@ -24,3 +24,4 @@ Long story short change
 [AWESOME-123] Fix issues with session timeout handling
 [AWESOME-123] Add new user role management features
 [AWESOME-123] Fix issues with session timeout handling
+[AWESOME-123] Add new user role management features
