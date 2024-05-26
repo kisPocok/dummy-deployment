@@ -30,3 +30,4 @@ Long story short change
 [AWESOME-123] Improve error handling in user authentication module
 [AWESOME-123] Add unit tests for new feature X
 [AWESOME-123] Improve error handling in user authentication module
+[AWESOME-123] Correct syntax errors in configuration files
