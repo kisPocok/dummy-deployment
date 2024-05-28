@@ -40,3 +40,4 @@ Long story short change
 [AWESOME-123] Add logging for debugging purposes
 [AWESOME-123] Improve performance of background job processing
 [AWESOME-123] Remove deprecated API endpoints and clean up routes
+[AWESOME-123] Fix layout issues in responsive design
