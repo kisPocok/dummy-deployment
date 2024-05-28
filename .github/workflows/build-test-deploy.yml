@@ -14,5 +14,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.1.6
 
-      - name: Wait for 15 seconds
-        run: sleep 15
+      - name: Wait for 5 seconds
+        run: sleep 5
