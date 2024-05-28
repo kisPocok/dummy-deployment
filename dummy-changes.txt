@@ -45,3 +45,4 @@ Long story short change
 [AWESOME-123] Improve performance of background job processing
 [AWESOME-123] Fix bug causing crash on startup in production environment
 [AWESOME-123] Improve error handling in user authentication module
+[AWESOME-123] Add unit tests for new feature X
