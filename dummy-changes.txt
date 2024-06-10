@@ -50,3 +50,4 @@ Long story short change
 [AWESOME-123] Refactor codebase for improved readability and performance
 [AWESOME-123] Improve error handling in user authentication module
 [AWESOME-123] Correct syntax errors in configuration files
+[AWESOME-123] Improve error handling in user authentication module
