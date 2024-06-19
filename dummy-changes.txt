@@ -56,3 +56,7 @@ Long story short change
 [AWESOME-123] Fix typo in README and add contributing guidelines
 [AWESOME-123] Fix bug causing crash on startup in production environment
 [AWESOME-123] Optimize database queries to reduce load times
+[AWESOME-123] Fix typo in README and add contributing guidelines
+[AWESOME-123] Add new user role management features
+[AWESOME-123] Fix bug causing crash on startup in production environment
+[AWESOME-123] Optimize database queries to reduce load times
