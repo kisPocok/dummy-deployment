@@ -73,3 +73,4 @@ Long story short change
 [AWESOME-123] Remove unused variables and imports
 [AWESOME-123] Improve caching strategy to reduce server load
 [AWESOME-123] Correct syntax errors in configuration files
+[AWESOME-123] Add new user role management features
