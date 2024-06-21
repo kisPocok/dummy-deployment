@@ -69,3 +69,4 @@ Long story short change
 [AWESOME-123] Remove unused variables and imports
 [AWESOME-123] Fix issues with session timeout handling
 [AWESOME-123] Enhance security for user data storage
+[AWESOME-123] Enhance security for user data storage
