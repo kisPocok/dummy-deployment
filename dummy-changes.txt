@@ -80,3 +80,4 @@ Long story short change
 [AWESOME-123] Fix typo in README and add contributing guidelines
 [AWESOME-123] Enhance security for user data storage
 [AWESOME-123] Remove unused variables and imports
+[AWESOME-123] Optimize database queries to reduce load times
