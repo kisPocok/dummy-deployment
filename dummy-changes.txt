@@ -87,3 +87,4 @@ Long story short change
 [AWESOME-123] Implement new feature Y with corresponding UI updates
 [AWESOME-123] Update documentation to reflect recent changes in API
 [AWESOME-123] Implement new feature Y with corresponding UI updates
+[AWESOME-123] Enhance security for user data storage
