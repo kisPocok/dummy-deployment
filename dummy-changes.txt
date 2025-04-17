@@ -89,3 +89,4 @@ Long story short change
 [AWESOME-123] Implement new feature Y with corresponding UI updates
 [AWESOME-123] Enhance security for user data storage
 [AWESOME-123] Fix layout issues in responsive design
+[AWESOME-123] Fix bug causing crash on startup in production environment
